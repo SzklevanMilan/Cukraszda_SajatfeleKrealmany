@@ -35,14 +35,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbLegolcsobbNev = new System.Windows.Forms.TextBox();
             this.tbLegolcsobbAr = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbSutitipus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbSnev = new System.Windows.Forms.TextBox();
+            this.tbStipus = new System.Windows.Forms.TextBox();
+            this.tbSegyseg = new System.Windows.Forms.TextBox();
+            this.tbSar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -103,12 +103,12 @@
             this.tbLegolcsobbAr.Size = new System.Drawing.Size(120, 20);
             this.tbLegolcsobbAr.TabIndex = 6;
             // 
-            // textBox7
+            // tbSutitipus
             // 
-            this.textBox7.Location = new System.Drawing.Point(135, 274);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 20);
-            this.textBox7.TabIndex = 7;
+            this.tbSutitipus.Location = new System.Drawing.Point(135, 274);
+            this.tbSutitipus.Name = "tbSutitipus";
+            this.tbSutitipus.Size = new System.Drawing.Size(229, 20);
+            this.tbSutitipus.TabIndex = 7;
             // 
             // label1
             // 
@@ -137,33 +137,33 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Süti típusa";
             // 
-            // textBox8
+            // tbSnev
             // 
-            this.textBox8.Location = new System.Drawing.Point(469, 34);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(194, 20);
-            this.textBox8.TabIndex = 11;
+            this.tbSnev.Location = new System.Drawing.Point(469, 34);
+            this.tbSnev.Name = "tbSnev";
+            this.tbSnev.Size = new System.Drawing.Size(194, 20);
+            this.tbSnev.TabIndex = 11;
             // 
-            // textBox9
+            // tbStipus
             // 
-            this.textBox9.Location = new System.Drawing.Point(469, 72);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(194, 20);
-            this.textBox9.TabIndex = 12;
+            this.tbStipus.Location = new System.Drawing.Point(469, 72);
+            this.tbStipus.Name = "tbStipus";
+            this.tbStipus.Size = new System.Drawing.Size(194, 20);
+            this.tbStipus.TabIndex = 12;
             // 
-            // textBox10
+            // tbSegyseg
             // 
-            this.textBox10.Location = new System.Drawing.Point(469, 110);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(194, 20);
-            this.textBox10.TabIndex = 13;
+            this.tbSegyseg.Location = new System.Drawing.Point(469, 110);
+            this.tbSegyseg.Name = "tbSegyseg";
+            this.tbSegyseg.Size = new System.Drawing.Size(194, 20);
+            this.tbSegyseg.TabIndex = 13;
             // 
-            // textBox11
+            // tbSar
             // 
-            this.textBox11.Location = new System.Drawing.Point(469, 149);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(194, 20);
-            this.textBox11.TabIndex = 14;
+            this.tbSar.Location = new System.Drawing.Point(469, 149);
+            this.tbSar.Name = "tbSar";
+            this.tbSar.Size = new System.Drawing.Size(194, 20);
+            this.tbSar.TabIndex = 14;
             // 
             // label4
             // 
@@ -229,6 +229,7 @@
             this.btnFelvetel.TabIndex = 21;
             this.btnFelvetel.Text = "Új süti felvétele";
             this.btnFelvetel.UseVisualStyleBackColor = true;
+            this.btnFelvetel.Click += new System.EventHandler(this.btnFelvetel_Click);
             // 
             // Form1
             // 
@@ -242,14 +243,14 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.tbSar);
+            this.Controls.Add(this.tbSegyseg);
+            this.Controls.Add(this.tbStipus);
+            this.Controls.Add(this.tbSnev);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.tbSutitipus);
             this.Controls.Add(this.tbLegolcsobbAr);
             this.Controls.Add(this.tbLegolcsobbNev);
             this.Controls.Add(this.pictureBox1);
@@ -276,14 +277,14 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbLegolcsobbNev;
         private System.Windows.Forms.TextBox tbLegolcsobbAr;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbSutitipus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbSnev;
+        private System.Windows.Forms.TextBox tbStipus;
+        private System.Windows.Forms.TextBox tbSegyseg;
+        private System.Windows.Forms.TextBox tbSar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

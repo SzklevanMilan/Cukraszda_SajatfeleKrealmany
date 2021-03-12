@@ -28,6 +28,7 @@ namespace Cukraszda
             MinMax();
             DijazottDb();
             ListaKiiras();
+            statKiiras();
         }
         public void Random()
         {
@@ -68,19 +69,101 @@ namespace Cukraszda
             {
                 if (!lista.ContainsKey(s.Nev))
                 {
-                    lista.Add(s.Nev,s.Tipus);
+                    lista.Add(s.Nev, s.Tipus);
                 }
             }
+            foreach (var l in lista)
+            {
+                ki.WriteLine(l.Key + " " + l.Value);
+            }
+            ki.Close();
+        }
+        public void statKiiras()
+        {
+            StreamWriter ki = new StreamWriter("stat.csv");
+            Dictionary<string, int> lista = new Dictionary<string, int>();
             foreach (var s in sutemenyek)
             {
-                ki.WriteLine();
+                if (!lista.ContainsKey(s.Tipus))
+                {
+                    lista.Add(s.Tipus,1);
+                }
+                else
+                {
+                    lista[s.Tipus]++;
+                }
+            }
+            foreach (var l in lista)
+            {
+                ki.WriteLine(l.Key + " " + l.Value);
             }
             ki.Close();
         }
 
         private void btnMentes_Click(object sender, EventArgs e)
         {
+            string tipus = tbSutitipus.Text.Trim();
+            if (tipus == "".Trim())
+            {
+                MessageBox.Show("Nem írtál be sütemény nevet!");
+            }
+            else
+            {
+                List<Ajanlat> ajanlatok = new List<Ajanlat>();
+                foreach (var s in sutemenyek)
+                {
+                    if (s.Tipus == tipus)
+                    {
+                        ajanlatok.Add(new Ajanlat(s.Nev,s.Egyseg,s.Ar));
+                    }
+                }
+                if (ajanlatok.Count == 0)
+                {
+                    MessageBox.Show("Nincs megfelelő sütink kérünk válassz mást!");
+                }
+                else
+                {
+                    StreamWriter iro = new StreamWriter("ajanlat.txt");
+                    double atlag = 0;
+                    foreach (var a in ajanlatok)
+                    {
+                        iro.WriteLine(a.nev, a.egyseg, a.ar);
+                        atlag += a.ar;
+                    }
+                    MessageBox.Show($"{ajanlatok.Count} darab sütit írtam az ajanlott.txt-be\n átlag ár {atlag/ajanlatok.Count}ft");
+                    iro.Close();
+                }
+            }
+        }
 
+        private void btnFelvetel_Click(object sender, EventArgs e)
+        {
+            bool van = false;
+            char[] szam = new char[] {'0','1','2','3','4','5','6','7','8','9' };
+            if (tbSnev.Text == "" || tbStipus.Text == "" || tbSar.Text == "" || tbSegyseg.Text == "")
+            {
+                van = false;
+            }
+            for (int i = 0; i < tbSar.Text.Length; i++)
+            {
+                if (!szam.Contains(tbSar.Text[i]))
+                {
+                    MessageBox.Show("Az új sütemény ára nem szám!");
+                    van = false;
+                    break;
+                }
+            }
+            if (van)
+            {
+                    StreamWriter iro = new StreamWriter("cuki.txt",true);
+                iro.Write($"\n{tbSnev.Text};{tbStipus.Text};{chkBDij.Checked};{tbSar.Text};{tbSegyseg.Text}");
+                    iro.Close();
+                MessageBox.Show("Az állomány bővítése sikeres volt!");
+            }
+            else
+            {
+                MessageBox.Show("Nem adtál meg minden adatot!");
+            }
         }
     }
 }
