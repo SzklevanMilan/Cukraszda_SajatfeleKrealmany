@@ -27,6 +27,7 @@ namespace Cukraszda
             Random();
             MinMax();
             DijazottDb();
+            ListaKiiras();
         }
         public void Random()
         {
@@ -61,7 +62,20 @@ namespace Cukraszda
         }
         public void ListaKiiras()
         {
-
+            StreamWriter ki = new StreamWriter("list.txt");
+            Dictionary<string, string> lista = new Dictionary<string, string>();
+            foreach (var s in sutemenyek)
+            {
+                if (!lista.ContainsKey(s.Nev))
+                {
+                    lista.Add(s.Nev,s.Tipus);
+                }
+            }
+            foreach (var s in sutemenyek)
+            {
+                ki.WriteLine();
+            }
+            ki.Close();
         }
 
         private void btnMentes_Click(object sender, EventArgs e)
